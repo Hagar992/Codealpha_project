@@ -39,5 +39,6 @@ This internship from [CodeAlpha](https://www.codealpha.tech ) focuses on buildin
 Interns are required to complete at least one of the two tasks listed above to be eligible for the certificate.
 
 ## 📞 Contact Info
-📧 Email: [shamsatia96@gmail.com] 
+- 📧 Email: [shamsatia96@gmail.com]
+- 💼 LinkedIn: [View My Profile](https://www.linkedin.com/in/hagar-atia-%F0%9F%87%B5%F0%9F%87%B8-b8740a250?lipi=urn%3Ali%3Apage%3Ad_flagship3_messaging_conversation_detail%3BUtSBqTwzSGKfoIBSUAiCiw%3D%3D)
 
