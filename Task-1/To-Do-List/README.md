@@ -43,7 +43,6 @@ I built a fully functional To-Do List app using only HTML, CSS, and JavaScript.
 
 ## Contact Info
 - 📧 Email: [shamsatia96@gmail.com]
-- 📱 WhatsApp: [+20 1222254335]  
 - 💼 LinkedIn: [View My Profile](https://www.linkedin.com/in/hagar-atia-%F0%9F%87%B5%F0%9F%87%B8-b8740a250?lipi=urn%3Ali%3Apage%3Ad_flagship3_messaging_conversation_detail%3BUtSBqTwzSGKfoIBSUAiCiw%3D%3D)
 
 
