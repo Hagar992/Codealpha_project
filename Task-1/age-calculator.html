@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Age Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(37, 39, 35, 0.1);
+      width: 350px;
+      text-align: center;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    input[type="date"] {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #a76899;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .result {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #333333;
+    }
+  </style>
+</head>
+<body dir="ltr">
+  <div class="container" id="app">
+    <div class="header">
+      <h1 id="title">Age Calculator</h1>
+      <button onclick="toggleLang()"> Arabic / English</button>
+    </div>
+
+    <label for="dob" id="label">Enter Your Date of Birth</label><br/>
+    <input type="date" id="dob" />
+    <br />
+    <button onclick="calculateAge()" id="btn">Calculate Age</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const translations = {
+      ar: {
+        title: "حاسبة العمر",
+        label: "ادخل تاريخ الميلاد",
+        btn: "احسب العمر",
+        result: (y, m, d) => `عمرك هو: ${y} سنة، ${m} شهر، و${d} يوم.`,
+        errorEmpty: "الرجاء إدخال تاريخ الميلاد",
+        errorInvalid: "التاريخ غير صحيح، الرجاء إدخال تاريخ في الماضي"
+      },
+      en: {
+        title: "Age Calculator",
+        label: "Enter Your Date of Birth",
+        btn: "Calculate Age",
+        result: (y, m, d) => `You are ${y} year(s), ${m} month(s), and ${d} day(s) old.`,
+        errorEmpty: "Please enter your date of birth.",
+        errorInvalid: "Invalid date. Please enter a date in the past."
+      }
+    };
+
+    let lang = 'en';
+
+    function toggleLang() {
+      lang = lang === 'en' ? 'ar' : 'en';
+      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      updateText();
+    }
+
+    function updateText() {
+      const t = translations[lang];
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('label').textContent = t.label;
+      document.getElementById('btn').textContent = t.btn;
+    }
+
+    function calculateAge() {
+      const dobInput = document.getElementById('dob').value;
+      const resultDiv = document.getElementById('result');
+      const t = translations[lang];
+
+      if (!dobInput) {
+        resultDiv.textContent = t.errorEmpty;
+        return;
+      }
+
+      const dob = new Date(dobInput);
+      const today = new Date();
+
+      if (dob > today) {
+        resultDiv.textContent = t.errorInvalid;
+        return;
+      }
+
+      let years = today.getFullYear() - dob.getFullYear();
+      let months = today.getMonth() - dob.getMonth();
+      let days = today.getDate() - dob.getDate();
+
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      resultDiv.textContent = t.result(years, months, days);
+    }
+  </script>
+</body>
+</html>

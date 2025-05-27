@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: left;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    input[type="text"] {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      border: 1px solid #974986;
+      border-radius: 5px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #a76899;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #f9f9f9;
+      margin: 0.3rem 0;
+      padding: 0.5rem;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .task-text {
+      flex-grow: 1;
+      cursor: pointer;
+    }
+    .actions {
+      display: flex;
+      gap: 5px;
+    }
+    /* Styles for icons */
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body dir="ltr">
+  <div class="container" id="app">
+    <div class="header">
+      <h1 id="title">To-Do List</h1>
+      <button onclick="toggleLang()"> Arabic/ English</button>
+    </div>
+
+    <input type="text" id="taskInput" placeholder="Add a new task..." />
+    <button onclick="addTask()" id="addBtn">Add</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    const translations = {
+      ar: {
+        title: "قائمة المهام",
+        placeholder: "أضف مهمة جديدة...",
+        add: "أضف"
+      },
+      en: {
+        title: "To-Do List",
+        placeholder: "Add a new task...",
+        add: "Add"
+      }
+    };
+
+    let lang = 'en';
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    function toggleLang() {
+      lang = lang === 'en' ? 'ar' : 'en';
+      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      updateText();
+      renderTasks();
+    }
+
+    function updateText() {
+      const t = translations[lang];
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('taskInput').placeholder = t.placeholder;
+      document.getElementById('addBtn').textContent = t.add;
+    }
+
+    function addTask() {
+      const input = document.getElementById('taskInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      tasks.push({ text, completed: false });
+      input.value = '';
+      saveTasks();
+      renderTasks();
+    }
+
+    function renderTasks() {
+      const list = document.getElementById('taskList');
+      list.innerHTML = '';
+
+      tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+
+        // إنشاء العناصر
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = task.completed;
+        checkbox.onclick = () => toggleComplete(index);
+
+        const span = document.createElement('span');
+        span.textContent = task.text;
+        span.className = 'task-text';
+        span.onclick = () => editTask(index);
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerHTML = '❌'
+        deleteBtn.onclick = () => deleteTask(index);
+
+        const editBtn = document.createElement('button');
+        editBtn.innerHTML = '✏️'
+        editBtn.onclick = () => editTask(index);
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+        actions.appendChild(editBtn);
+        actions.appendChild(deleteBtn);
+
+        li.className = task.completed ? 'completed' : '';
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        li.appendChild(actions);
+
+        list.appendChild(li);
+      });
+    }
+
+    function toggleComplete(index) {
+      tasks[index].completed = !tasks[index].completed;
+      saveTasks();
+      renderTasks();
+    }
+
+    function deleteTask(index) {
+      tasks.splice(index, 1);
+      saveTasks();
+      renderTasks();
+    }
+
+    function editTask(index) {
+      const newText = prompt("Edit your task:", tasks[index].text);
+      if (newText !== null && newText.trim() !== '') {
+        tasks[index].text = newText.trim();
+        saveTasks();
+        renderTasks();
+      }
+    }
+
+    function saveTasks() {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    updateText();
+    renderTasks();
+  </script>
+</body>
+</html>
