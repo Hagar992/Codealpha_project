@@ -38,17 +38,12 @@ It was developed using only **vanilla HTML, CSS, and JavaScript**, with no exter
 ## LinkedIn Post Example
 📌 I’ve completed my **CodeAlpha Web Development Internship** task!  
 I built a fully functional To-Do List app using only HTML, CSS, and JavaScript.  
-🔗 GitHub: [https://github.com/your-username/CodeAlpha_ToDoList](https://github.com/your-username/CodeAlpha_ToDoList)  
+🔗 GitHub: [https://github.com/Hagar992/CodeAlpha_ToDoList]((https://github.com/Hagar992/Codealpha_project/tree/main/Task-1/To-Do-List))  
 #CodeAlphaInternship @CodeAlpha
 
 ## Contact Info
-📧 Email: shamsatia96@gmail.com  
+📧 Email: [shamsatia96@gmail.com]
 📱 WhatsApp: [+20 1222254335]  
-🌐 Website: [www.codealpha.tech](https://www.codealpha.tech)
+💼 LinkedIn: [View My Profile](https://www.linkedin.com/in/hagar-atia-%F0%9F%87%B5%F0%9F%87%B8-b8740a250?lipi=urn%3Ali%3Apage%3Ad_flagship3_messaging_conversation_detail%3BUtSBqTwzSGKfoIBSUAiCiw%3D%3D)
 
 
-✅ "أريد ملف README بصيغة TXT"  
-أو  
-✅ "أريد ملف README بصيغة MD"
-
-وسأقوم بإرساله فوراً 😊
