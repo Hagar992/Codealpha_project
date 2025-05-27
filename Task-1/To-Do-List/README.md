@@ -39,6 +39,7 @@ It was developed using only **vanilla HTML, CSS, and JavaScript**, with no exter
 📌 I’ve completed my **CodeAlpha Web Development Internship** task!  
 I built a fully functional To-Do List app using only HTML, CSS, and JavaScript.  
 🔗 GitHub: [https://github.com/Hagar992/CodeAlpha_ToDoList]((https://github.com/Hagar992/Codealpha_project/tree/main/Task-1/To-Do-List))  
+- 💼 LinkedIn: [View Post]([https://www.linkedin.com/in/hagar-atia-%F0%9F%87%B5%F0%9F%87%B8-b8740a250?lipi=urn%3Ali%3Apage%3Ad_flagship3_messaging_conversation_detail%3BUtSBqTwzSGKfoIBSUAiCiw%3D%3D](https://www.linkedin.com/posts/hagar-atia-%F0%9F%87%B5%F0%9F%87%B8-b8740a250_webdevelopment-codealpha-internship-activity-7333227089384357888-76hB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD3_OhcBP0boTzfqQZ2EhirH8fxPSo91VBc))
 #CodeAlphaInternship @CodeAlpha
 
 ## Contact Info
