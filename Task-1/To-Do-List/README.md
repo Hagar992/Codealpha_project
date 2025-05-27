@@ -1,10 +1,3 @@
-بالطبع! إليك **ملف `README.md` جاهز باللغة الإنجليزية** يمكنك نسخه ولصقه في مستودع GitHub الخاص بك.
-
----
-
-### 📄 `README.md`
-
-```markdown
 # CodeAlpha Internship — To-Do List Web App
 
 > A simple and responsive To-Do List web application built using HTML, CSS, and JavaScript as part of the **CodeAlpha Web Development Internship**.
